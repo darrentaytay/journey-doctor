@@ -2,9 +2,7 @@
 
 namespace JourneyDoctor\BoardingPass;
 
-use JourneyDoctor\BoardingPass\Interfaces\FlightBoardingPassInterface;
-
-final class FlightBoardingPass extends AbstractBoardingPass implements FlightBoardingPassInterface
+final class FlightBoardingPass extends AbstractBoardingPass
 {
     /**
      * Flight number.

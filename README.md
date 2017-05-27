@@ -17,7 +17,7 @@ This might take some time, but when it's done, all dependencies should be instal
 
 ### phpUnit
 
-I've used phpUnit for unit testing and also a single integration tests which shows all of the components working together. 
+I've used phpUnit for unit testing and also a single integration tests which shows all of the components working together.
 
 ### Running the tests
 
@@ -51,8 +51,6 @@ echo $journey;
 ### Adding more boarding pass types
 
 To add a new Boarding Pass, you would simply create a new class insside the `BoardingPass/` directory. This class should extend the `AbstractBoardingPass` base class which, in turn, implements the `BoardingPassInterface`. The `BoardingPassInterface` ensures that all boarding passes provide a method of returning the start location, the end location and optionally, a seat.
-
-You can optionally force your new boarding pass to implement it's own interface by creating one inside `BoardingPass/Interfaces`.
 
 ## Code design
 
