@@ -13,7 +13,7 @@ class BoardingPassCollectionBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function itCanBuildABoardingPassCollectionFromJson()
     {
-        $builder = new BoardingPassCollectionBuilder;
+        $builder = new BoardingPassCollectionBuilder();
         $collection = $builder->fromJson(file_get_contents('sampledata.json'))->build();
 
         $this->assertInstanceOf(BoardingPassCollection::class, $collection);
@@ -26,7 +26,7 @@ class BoardingPassCollectionBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function itCantBuildWithoutData()
     {
-        $builder = new BoardingPassCollectionBuilder;
+        $builder = new BoardingPassCollectionBuilder();
         $collection = $builder->build();
     }
 }

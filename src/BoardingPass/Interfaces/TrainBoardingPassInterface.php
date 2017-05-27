@@ -2,8 +2,8 @@
 
 namespace JourneyDoctor\BoardingPass\Interfaces;
 
-interface TrainBoardingPassInterface {
-
+interface TrainBoardingPassInterface
+{
     /**
      * Set the train number.
      */
@@ -15,5 +15,4 @@ interface TrainBoardingPassInterface {
      * @return string
      */
     public function getTrainNumber();
-
 }

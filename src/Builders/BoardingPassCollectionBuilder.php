@@ -7,8 +7,8 @@ use JourneyDoctor\Exceptions\InvalidJsonException;
 use JourneyDoctor\Exceptions\NoDataProvidedException;
 use JourneyDoctor\Factories\BoardingPassFactory;
 
-class BoardingPassCollectionBuilder {
-
+class BoardingPassCollectionBuilder
+{
     /**
      * The data the Collection will be built from.
      *
@@ -23,16 +23,15 @@ class BoardingPassCollectionBuilder {
      */
     public function build(): BoardingPassCollection
     {
-        if(empty($this->data)) {
+        if (empty($this->data)) {
             throw new NoDataProvidedException("Can't build BoardingPassCollection as no data has been supplied.");
         }
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
 
-        foreach($this->data as $data) {
+        foreach ($this->data as $data) {
             $boardingPass = BoardingPassFactory::make($data);
             $boardingPassCollection->add($boardingPass);
-
         }
 
         return $boardingPassCollection;
@@ -41,14 +40,15 @@ class BoardingPassCollectionBuilder {
     /**
      * Build the collection from a JSON string.
      *
-     * @param  string $json
+     * @param string $json
+     *
      * @return BoardingPassCollectionBuilder
      */
     public function fromJson(string $json): BoardingPassCollectionBuilder
     {
         $data = json_decode($json, true);
 
-        if(!$data) {
+        if (!$data) {
             throw InvalidJsonException('Invalid Json provided.');
         }
 
@@ -56,5 +56,4 @@ class BoardingPassCollectionBuilder {
 
         return $this;
     }
-
 }

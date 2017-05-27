@@ -2,10 +2,10 @@
 
 namespace JourneyDoctor\BoardingPass;
 
-final class AirportBusBoardingPass extends BusBoardingPass {
-
+final class AirportBusBoardingPass extends BusBoardingPass
+{
     /**
-     * Cast AirportBusBoardingPass to a string
+     * Cast AirportBusBoardingPass to a string.
      *
      * @return string
      */
@@ -14,11 +14,10 @@ final class AirportBusBoardingPass extends BusBoardingPass {
         $seat = $this->hasSeat() ? sprintf('Sit in seat %s.', $this->getSeat()) : 'No seat assignment';
 
         return sprintf(
-            "Take the airport bus from %s to %s. %s.",
+            'Take the airport bus from %s to %s. %s.',
             $this->getStartLocation(),
             $this->getEndLocation(),
             $seat
         );
     }
-
 }

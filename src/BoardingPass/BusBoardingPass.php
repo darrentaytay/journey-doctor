@@ -2,7 +2,6 @@
 
 namespace JourneyDoctor\BoardingPass;
 
-class BusBoardingPass extends AbstractBoardingPass {
-
-
+class BusBoardingPass extends AbstractBoardingPass
+{
 }

@@ -4,8 +4,8 @@ namespace JourneyDoctor;
 
 use JourneyDoctor\Collections\BoardingPassCollection;
 
-class Journey {
-
+class Journey
+{
     /**
      * The boarding passes for this journey.
      *
@@ -29,17 +29,17 @@ class Journey {
     }
 
     /**
-     * Output the Journey as a string
+     * Output the Journey as a string.
+     *
      * @return string
      */
     public function __toString(): string
     {
         $output = '';
-        $step   = 1;
+        $step = 1;
 
-        foreach($this->boardingPasses as $pass)
-        {
-            $output .= sprintf('%s. %s', $step, $pass) . PHP_EOL;
+        foreach ($this->boardingPasses as $pass) {
+            $output .= sprintf('%s. %s', $step, $pass).PHP_EOL;
             $step++;
         }
 
@@ -47,5 +47,4 @@ class Journey {
 
         return $output;
     }
-
 }

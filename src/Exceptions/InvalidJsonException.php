@@ -4,4 +4,6 @@ namespace JourneyDoctor\Exceptions;
 
 use Exception;
 
-class InvalidJsonException extends Exception { }
+class InvalidJsonException extends Exception
+{
+}

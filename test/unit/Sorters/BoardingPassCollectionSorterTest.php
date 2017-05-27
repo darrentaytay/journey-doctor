@@ -1,8 +1,8 @@
 <?php
 
-use JourneyDoctor\Sorters\BoardingPassCollectionSorter;
-use JourneyDoctor\Collections\BoardingPassCollection;
 use JourneyDoctor\BoardingPass\FlightBoardingPass;
+use JourneyDoctor\Collections\BoardingPassCollection;
+use JourneyDoctor\Sorters\BoardingPassCollectionSorter;
 
 /**
  * @group BoardingPassCollectionSorter
@@ -14,7 +14,7 @@ class BoardingPassCollectionSorterTest extends PHPUnit_Framework_TestCase
      */
     public function sortsBoardingPasses()
     {
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add(
             new FlightBoardingPass('Stockholm', 'Budapest'),
             new FlightBoardingPass('Budapest', 'Barcelona'),
@@ -31,5 +31,4 @@ class BoardingPassCollectionSorterTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Dubai', $sorted->last()->getEndLocation());
         $this->assertEquals(7, count($sorted));
     }
-
 }

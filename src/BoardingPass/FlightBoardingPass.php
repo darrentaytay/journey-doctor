@@ -4,8 +4,8 @@ namespace JourneyDoctor\BoardingPass;
 
 use JourneyDoctor\BoardingPass\Interfaces\FlightBoardingPassInterface;
 
-final class FlightBoardingPass extends AbstractBoardingPass implements FlightBoardingPassInterface {
-
+final class FlightBoardingPass extends AbstractBoardingPass implements FlightBoardingPassInterface
+{
     /**
      * Flight number.
      *
@@ -86,7 +86,7 @@ final class FlightBoardingPass extends AbstractBoardingPass implements FlightBoa
     }
 
     /**
-     * Cast FlightBoardingPass to a string
+     * Cast FlightBoardingPass to a string.
      *
      * @return string
      */
