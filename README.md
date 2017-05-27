@@ -1,6 +1,7 @@
 # Journey Doctor
 
 ![StyleCI Shield](https://styleci.io/repos/92410773/shield)
+[![Build Status](https://travis-ci.org/dtisgodsson/journey-doctor.svg?branch=master)](https://travis-ci.org/dtisgodsson/journey-doctor)
 
 ## Installation guide
 
