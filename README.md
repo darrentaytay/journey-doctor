@@ -1,5 +1,7 @@
 # Journey Doctor
 
+![StyleCI Shield](https://styleci.io/repos/92410773/shield)
+
 ## Installation guide
 
 This project ships with a Vagrantfile, which, in conjunction with Vagrant & VirtualBox, allows Developers to launch a pre-configured VirtualMachine.
