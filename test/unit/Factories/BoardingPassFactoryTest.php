@@ -39,7 +39,7 @@ class BoardingPassFactoryTest extends PHPUnit_Framework_TestCase
             'baggage' => 'We keep your baggage.',
             'gate'    => '22B',
             'flight'  => '44XA',
-            'seat'    => '13C'
+            'seat'    => '13C',
         ];
 
         $flight = BoardingPassFactory::make($flight);
@@ -65,7 +65,7 @@ class BoardingPassFactoryTest extends PHPUnit_Framework_TestCase
             'from'  => 'Edinburgh',
             'to'    => 'Glasgow',
             'train' => 'X32',
-            'seat'  => '55J'
+            'seat'  => '55J',
         ];
 
         $train = BoardingPassFactory::make($train);
@@ -88,7 +88,7 @@ class BoardingPassFactoryTest extends PHPUnit_Framework_TestCase
             'type'  => 'bus',
             'from'  => 'Kirkcaldy',
             'to'    => 'Edinburgh',
-            'seat'  => 'AP1'
+            'seat'  => 'AP1',
         ];
 
         $bus = BoardingPassFactory::make($bus);
@@ -100,5 +100,4 @@ class BoardingPassFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Edinburgh', $bus->getEndLocation());
         $this->assertEquals('AP1', $bus->getSeat());
     }
-
 }

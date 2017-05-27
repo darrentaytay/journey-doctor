@@ -4,8 +4,8 @@ namespace JourneyDoctor\Sorters;
 
 use JourneyDoctor\Collections\BoardingPassCollection;
 
-class BoardingPassCollectionSorter {
-
+class BoardingPassCollectionSorter
+{
     /**
      * @param BoardingPassCollection $boardingPasses
      */
@@ -21,15 +21,14 @@ class BoardingPassCollectionSorter {
      */
     public function sort(): BoardingPassCollection
     {
-        $sorted = new BoardingPassCollection;
+        $sorted = new BoardingPassCollection();
         $sorted->add($this->boardingPasses->pop());
 
         while (count($this->boardingPasses) > 0) {
-            foreach($this->boardingPasses as $index => $boardingPass) {
-                if($sorted->first()->startsAt($boardingPass->getEndLocation())) {
+            foreach ($this->boardingPasses as $index => $boardingPass) {
+                if ($sorted->first()->startsAt($boardingPass->getEndLocation())) {
                     $sorted->prepend($this->boardingPasses->pull($index));
-                }
-                elseif($sorted->last()->endsAt($boardingPass->getStartLocation())) {
+                } elseif ($sorted->last()->endsAt($boardingPass->getStartLocation())) {
                     $sorted->push($this->boardingPasses->pull($index));
                 }
             }
@@ -37,5 +36,4 @@ class BoardingPassCollectionSorter {
 
         return $sorted;
     }
-
 }

@@ -2,8 +2,8 @@
 
 namespace JourneyDoctor\BoardingPass\Interfaces;
 
-interface BoardingPassInterface {
-
+interface BoardingPassInterface
+{
     /**
      * Get the start location.
      *
@@ -24,5 +24,4 @@ interface BoardingPassInterface {
      * @return string
      */
     public function getSeat();
-
 }

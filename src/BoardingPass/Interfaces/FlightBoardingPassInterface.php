@@ -2,8 +2,8 @@
 
 namespace JourneyDoctor\BoardingPass\Interfaces;
 
-interface FlightBoardingPassInterface {
-
+interface FlightBoardingPassInterface
+{
     /**
      * Set the flight number.
      *
@@ -43,5 +43,4 @@ interface FlightBoardingPassInterface {
      * Get the gate.
      */
     public function getGate();
-
 }

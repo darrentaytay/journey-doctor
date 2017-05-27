@@ -2,15 +2,14 @@
 
 namespace JourneyDoctor\Collections;
 
-use JourneyDoctor\BoardingPass\Interfaces\BoardingPassInterface;
-use Countable;
 use ArrayAccess;
-use IteratorAggregate;
 use ArrayIterator;
-use InvalidArgumentException;
+use Countable;
+use IteratorAggregate;
+use JourneyDoctor\BoardingPass\Interfaces\BoardingPassInterface;
 
-class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregate {
-
+class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregate
+{
     /**
      * Array of boarding passes.
      *
@@ -25,16 +24,16 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      */
     public function add(BoardingPassInterface ...$boardingPasses)
     {
-        foreach($boardingPasses as $boardingPass)
-        {
+        foreach ($boardingPasses as $boardingPass) {
             $this->boardingPasses[] = $boardingPass;
         }
     }
 
     /**
-     * Prepend a BoardingPass
+     * Prepend a BoardingPass.
      *
-     * @param  BoardingPassInterface $boardingPass
+     * @param BoardingPassInterface $boardingPass
+     *
      * @return BoardingPassCollection
      */
     public function prepend(BoardingPassInterface $boardingPass): BoardingPassCollection
@@ -47,7 +46,8 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
     /**
      * Pull an item from the collection and return it.
      *
-     * @param  int    $index
+     * @param int $index
+     *
      * @return BoardingPassInterface
      */
     public function pull(int $index): BoardingPassInterface
@@ -62,7 +62,8 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
     /**
      * Push a BoardingPass onto the end of the collection.
      *
-     * @param  BoardingPassInterface $boardingPass
+     * @param BoardingPassInterface $boardingPass
+     *
      * @return BoardingPassCollection
      */
     public function push(BoardingPassInterface $boardingPass): BoardingPassCollection
@@ -103,7 +104,7 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
     }
 
     /**
-     * Return ArrayIterator for the BoardingPasses in the collection
+     * Return ArrayIterator for the BoardingPasses in the collection.
      *
      * @return ArrayIterator
      */
@@ -116,7 +117,8 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      * Determine if an item exists at an offset.
      * ArrayAccess interface method.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return bool
      */
     public function offsetExists($key): bool
@@ -128,7 +130,8 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      * Get an item at a given offset.
      * ArrayAccess interface method.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return mixed
      */
     public function offsetGet($key): BoardingPassInterface
@@ -140,8 +143,9 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      * Set the item at a given offset.
      * ArrayAccess interface method.
      *
-     * @param  mixed  $key
-     * @param  mixed  $value
+     * @param mixed $key
+     * @param mixed $value
+     *
      * @return void
      */
     public function offsetSet($key, $value)
@@ -157,7 +161,8 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      * Unset the item at a given offset.
      * ArrayAccess interface method.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return void
      */
     public function offsetUnset($key)
@@ -169,11 +174,10 @@ class BoardingPassCollection implements Countable, ArrayAccess, IteratorAggregat
      * Count the number of boarding passes in the collection.
      * Countable interface method.
      *
-     * @return integer
+     * @return int
      */
     public function count(): int
     {
         return count($this->boardingPasses);
     }
-
 }

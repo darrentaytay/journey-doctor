@@ -4,8 +4,8 @@ namespace JourneyDoctor\BoardingPass;
 
 use JourneyDoctor\BoardingPass\Interfaces\TrainBoardingPassInterface;
 
-final class TrainBoardingPass extends AbstractBoardingPass implements TrainBoardingPassInterface {
-
+final class TrainBoardingPass extends AbstractBoardingPass implements TrainBoardingPassInterface
+{
     /**
      * Train number.
      *
@@ -34,7 +34,7 @@ final class TrainBoardingPass extends AbstractBoardingPass implements TrainBoard
     }
 
     /**
-     * Cast TrainBoardingPass to a string
+     * Cast TrainBoardingPass to a string.
      *
      * @return string
      */

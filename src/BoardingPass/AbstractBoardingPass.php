@@ -4,8 +4,8 @@ namespace JourneyDoctor\BoardingPass;
 
 use JourneyDoctor\BoardingPass\Interfaces\BoardingPassInterface;
 
-abstract class AbstractBoardingPass implements BoardingPassInterface {
-
+abstract class AbstractBoardingPass implements BoardingPassInterface
+{
     /**
      * Start location.
      *
@@ -30,8 +30,8 @@ abstract class AbstractBoardingPass implements BoardingPassInterface {
     public function __construct(string $from, string $to, string $seat = '')
     {
         $this->startLocation = $from;
-        $this->endLocation   = $to;
-        $this->seat          = $seat;
+        $this->endLocation = $to;
+        $this->seat = $seat;
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class AbstractBoardingPass implements BoardingPassInterface {
     /**
      * Determine if this Boarding Pass has seat allocation.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasSeat(): bool
     {
@@ -75,23 +75,22 @@ abstract class AbstractBoardingPass implements BoardingPassInterface {
     }
 
     /**
-     * Determine if this Boarding Pass starts at the given location
+     * Determine if this Boarding Pass starts at the given location.
      *
      * @return bool
      */
     public function startsAt(string $location): bool
     {
-        return ($this->getStartLocation() == $location);
+        return $this->getStartLocation() == $location;
     }
 
     /**
-     * Determine if this Boarding Pass starts at the given location
+     * Determine if this Boarding Pass starts at the given location.
      *
      * @return bool
      */
     public function endsAt(string $location): bool
     {
-        return ($this->getEndLocation() == $location);
+        return $this->getEndLocation() == $location;
     }
-
 }

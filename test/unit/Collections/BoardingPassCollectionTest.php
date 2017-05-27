@@ -15,7 +15,7 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     {
         $boardingPass = new FlightBoardingPass('Edinburgh', 'Dubai');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($boardingPass);
 
         $this->assertEquals(1, count($boardingPassCollection));
@@ -27,9 +27,9 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function canAddMultipleBoardingPasses()
     {
         $edinburghPass = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $dubaiPass);
 
         $this->assertEquals(2, count($boardingPassCollection));
@@ -41,7 +41,7 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
      */
     public function cantAddInvalidType()
     {
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add('Edinburgh');
     }
 
@@ -50,7 +50,7 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
      */
     public function countWithNoBoardingPassesReturnsZero()
     {
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
 
         $this->assertEquals(0, count($boardingPassCollection));
     }
@@ -61,9 +61,9 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function arrayAccessMethods()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $dubaiPass);
 
         $this->assertEquals('Kirkcaldy', $boardingPassCollection[0]->getStartLocation());
@@ -76,10 +76,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itPrependsToTheStart()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $dubaiPass);
         $boardingPassCollection->prepend($saudiPass);
 
@@ -93,10 +93,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itPullsFromTheCollection()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $dubaiPass, $saudiPass);
 
         $this->assertEquals(3, count($boardingPassCollection));
@@ -113,10 +113,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itPushesToTheCollection()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $dubaiPass);
 
         $this->assertEquals(2, count($boardingPassCollection));
@@ -132,10 +132,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itPopsFromTheCollection()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $saudiPass, $dubaiPass);
 
         $this->assertEquals(3, count($boardingPassCollection));
@@ -153,10 +153,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itReturnsTheFirstItemInTheCollection()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $saudiPass, $dubaiPass);
 
         $this->assertEquals(3, count($boardingPassCollection));
@@ -174,10 +174,10 @@ class BoardingPassCollectionTest extends PHPUnit_Framework_TestCase
     public function itReturnsTheLastItemInTheCollection()
     {
         $edinburghPass = new FlightBoardingPass('Kirkcaldy', 'Edinburgh');
-        $dubaiPass     = new FlightBoardingPass('Edinburgh', 'Dubai');
-        $saudiPass     = new FlightBoardingPass('Dubai', 'Saudi');
+        $dubaiPass = new FlightBoardingPass('Edinburgh', 'Dubai');
+        $saudiPass = new FlightBoardingPass('Dubai', 'Saudi');
 
-        $boardingPassCollection = new BoardingPassCollection;
+        $boardingPassCollection = new BoardingPassCollection();
         $boardingPassCollection->add($edinburghPass, $saudiPass, $dubaiPass);
 
         $this->assertEquals(3, count($boardingPassCollection));

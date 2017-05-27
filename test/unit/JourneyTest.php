@@ -32,9 +32,9 @@ class JourneyTest extends PHPUnit_Framework_TestCase
     private function getBoardingPassCollection()
     {
         $edinburgh = new BusBoardingPass('Kirkcaldy', 'Edinburgh');
-        $heathrow  = new FlightBoardingPass('Edinburgh', 'Heathrow');
+        $heathrow = new FlightBoardingPass('Edinburgh', 'Heathrow');
 
-        $collection = new BoardingPassCollection;
+        $collection = new BoardingPassCollection();
         $collection->add($edinburgh, $heathrow);
 
         return $collection;

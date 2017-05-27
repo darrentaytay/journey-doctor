@@ -2,41 +2,41 @@
 
 namespace JourneyDoctor\Factories;
 
-use JourneyDoctor\BoardingPass\Interfaces\BoardingPassInterface;
 use JourneyDoctor\BoardingPass\AirportBusBoardingPass;
 use JourneyDoctor\BoardingPass\BusBoardingPass;
 use JourneyDoctor\BoardingPass\FlightBoardingPass;
+use JourneyDoctor\BoardingPass\Interfaces\BoardingPassInterface;
 use JourneyDoctor\BoardingPass\TrainBoardingPass;
-use JourneyDoctor\Exceptions\InvalidBoardingPassTypeException;
 use JourneyDoctor\Exceptions\InvalidBoardingPassDataException;
+use JourneyDoctor\Exceptions\InvalidBoardingPassTypeException;
 
 /**
  * This class is responsible for making the correct BoardingPass
  * object.
  */
-class BoardingPassFactory {
-
+class BoardingPassFactory
+{
     /**
      * Make the correct BoardingPass based on it's properties.
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return BoardingPass
      */
     public static function make(array $properties): BoardingPassInterface
     {
-        if(!isset($properties['type']) || !isset($properties['to']) || !isset($properties['from'])) {
+        if (!isset($properties['type']) || !isset($properties['to']) || !isset($properties['from'])) {
             throw new InvalidBoardingPassDataException('Boarding passes require the "type", "to" and "from" attributes.');
         }
 
-        switch($properties['type'])
-        {
-            case "flight":
+        switch ($properties['type']) {
+            case 'flight':
                 return static::makeFlightBoardingPass($properties);
-            case "train":
+            case 'train':
                 return static::makeTrainBoardingPass($properties);
-            case "bus":
+            case 'bus':
                 return static::makeBusBoardingPass($properties);
-            case "airportbus":
+            case 'airportbus':
                 return static::makeAirportBusBoardingPass($properties);
             default:
                 throw new InvalidBoardingPassTypeException(
@@ -48,7 +48,8 @@ class BoardingPassFactory {
     /**
      * Make a FlightBoardingPass.
      *
-     * @param  array  $properties
+     * @param array $properties
+     *
      * @return FlightBoardingPass
      */
     private static function makeFlightBoardingPass(array $properties): FlightBoardingPass
@@ -59,15 +60,15 @@ class BoardingPassFactory {
             isset($properties['seat']) ? $properties['seat'] : ''
         );
 
-        if(isset($properties['baggage'])) {
+        if (isset($properties['baggage'])) {
             $flightBoardingPass->setBaggage($properties['baggage']);
         }
 
-        if(isset($properties['gate'])) {
+        if (isset($properties['gate'])) {
             $flightBoardingPass->setGate($properties['gate']);
         }
 
-        if(isset($properties['flight'])) {
+        if (isset($properties['flight'])) {
             $flightBoardingPass->setFlightNumber($properties['flight']);
         }
 
@@ -77,7 +78,8 @@ class BoardingPassFactory {
     /**
      * Make a TrainBoardingPass.
      *
-     * @param  array  $properties
+     * @param array $properties
+     *
      * @return TrainBoardingPass
      */
     private static function makeTrainBoardingPass(array $properties): TrainBoardingPass
@@ -88,7 +90,7 @@ class BoardingPassFactory {
             isset($properties['seat']) ? $properties['seat'] : ''
         );
 
-        if(isset($properties['train'])) {
+        if (isset($properties['train'])) {
             $trainBoardingPass->setTrainNumber($properties['train']);
         }
 
@@ -98,7 +100,8 @@ class BoardingPassFactory {
     /**
      * Make a BusBoardingPass.
      *
-     * @param  array  $properties
+     * @param array $properties
+     *
      * @return BusBoardingPass
      */
     private static function makeBusBoardingPass(array $properties): BusBoardingPass
@@ -115,7 +118,8 @@ class BoardingPassFactory {
     /**
      * Make a AirportBusBoardingPass.
      *
-     * @param  array  $properties
+     * @param array $properties
+     *
      * @return BusBoardingPass
      */
     private static function makeAirportBusBoardingPass(array $properties): AirportBusBoardingPass
@@ -128,5 +132,4 @@ class BoardingPassFactory {
 
         return $busBoardingPass;
     }
-
 }
